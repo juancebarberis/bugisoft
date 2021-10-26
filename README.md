@@ -20,6 +20,7 @@ Links y utilidades para el equipo y el proyecto
 
 - [Godot](https://godotengine.org/)
 - [GDScript documentación en español](https://docs.godotengine.org/es/stable/getting_started/scripting/gdscript/gdscript_basics.html)
+- [Sprite maker](https://www.pixilart.com/)
 
 ## Troubleshooting
 
