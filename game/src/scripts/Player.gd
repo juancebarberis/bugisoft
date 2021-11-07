@@ -28,6 +28,8 @@ func calculate_velocity(delta: float, previous_velocity: Vector2) -> Vector2:
 		
 	return Vector2(x, y)
 
+# Función para incrementar el score del jugador.
+# TODO: tal vez esto tenga que ir a un script especial que maneje los puntos.
 func increase_score():
 	score += 1
 	
