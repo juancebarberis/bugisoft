@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/highscore.mp3-4a0a1d5baff01d25e29ee91986a8fe7f.mp3str"
+
+[deps]
+
+source_file="res://src/audio/highscore.mp3"
+dest_files=[ "res://.import/highscore.mp3-4a0a1d5baff01d25e29ee91986a8fe7f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

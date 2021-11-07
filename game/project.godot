@@ -24,6 +24,10 @@ config/name="pilot_1"
 run/main_scene="res://src/scenes/MainLevel.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+output_latency=5
+
 [input]
 
 jump={
