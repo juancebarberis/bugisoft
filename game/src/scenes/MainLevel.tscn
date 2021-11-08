@@ -6,6 +6,7 @@
 [ext_resource path="res://src/audio/highscore.mp3" type="AudioStream" id=4]
 [ext_resource path="res://src/scripts/AudioStreamPlayer.gd" type="Script" id=5]
 [ext_resource path="res://src/sprites/flag.png" type="Texture" id=6]
+[ext_resource path="res://src/scripts/Pause.gd" type="Script" id=7]
 [ext_resource path="res://src/scenes/Coin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/scripts/MainLevel.gd" type="Script" id=9]
 [ext_resource path="res://src/fonts/fast99.ttf" type="DynamicFontData" id=10]
@@ -62,6 +63,10 @@ default_font = SubResource( 3 )
 position = Vector2( -2.18695, 87.8985 )
 scale = Vector2( 0.4, 0.4 )
 script = ExtResource( 9 )
+
+[node name="Pause" type="Node" parent="."]
+pause_mode = 2
+script = ExtResource( 7 )
 
 [node name="background" type="Sprite" parent="."]
 visible = false
@@ -145,8 +150,6 @@ position = Vector2( 30045.5, 580.254 )
 position = Vector2( 31765.5, 580.254 )
 
 [node name="Canvas" type="CanvasLayer" parent="."]
-scale = Vector2( 1, 1 )
-transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 [node name="UI" type="Control" parent="Canvas"]
 margin_right = 40.0
@@ -165,6 +168,17 @@ margin_bottom = 71.2681
 custom_colors/font_color = Color( 0.964706, 0.0745098, 0.0313726, 1 )
 text = "Score: 0"
 script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" type="Label" parent="Canvas/UI"]
+visible = false
+margin_left = 856.0
+margin_top = 32.0
+margin_right = 1005.0
+margin_bottom = 79.0
+text = "Pause"
 __meta__ = {
 "_edit_use_anchors_": false
 }
