@@ -2,10 +2,9 @@ extends Area2D
 
 onready var animation = get_node("AnimationPlayer")
 
-# Esta función detecta si el Player colisiona con la Coin
-# Recibe el nodo del Player
+# This function detects the collision with the Player
 func _on_body_entered(player: KinematicBody2D) -> void:
-	# Reproducir animación para destruir Coin de la pantalla
+	# Play the animation for the coin
 	animation.play("coin_destroy")
 	
 	# Sumar un punto al contador
