@@ -11,7 +11,7 @@ var velocity = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: bool = Input.is_action_just_released("jump") and velocity.y < 0.0
-
+	
 	velocity = calculate_velocity(delta, velocity, is_jump_interrupted)
 	velocity = move_and_slide(velocity, FLOOR_NORMAL)
 
