@@ -1,39 +1,50 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 onready var song = preload("res://src/audio/highscore.mp3")
 onready var bullet = load("res://src/scenes/Bullet.tscn")
 onready var instructions = load("res://src/scenes/Instructions.tscn")
 
-var posicion_x_inicio = 3767.16
-var posicion_x_final = 34257
-var recorrido_total = posicion_x_final - posicion_x_inicio
+const X_START = 3767.16
+const X_END = 34257.0
+const X_TOTAL = X_END - X_START
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	var inst = instructions.instance()
-	add_child(inst)
-	for i in range(5):
-		var b = bullet.instance()
-		add_child(b)
-		b.init(8000*i, 700, float(50)/float(i+1))
-	
-	
+	add_instructions()
+	add_bullets(8)
 
-	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	$Canvas/UI/LevelProgress.value = ( float($Player.position.x - posicion_x_inicio) / float(recorrido_total) ) * 100
-	$Canvas/UI/Score.text = "Score: %s" % $Player.score
-
-	if($Player.position.x > 3767.16):
+	if($Player.position.x > X_START):
 		$Canvas/UI/LevelProgress.visible = true;
 		$Canvas/UI/Score.visible = true
+	update_score()
+	play_song()
+	update_progress_bar()
+
+func add_instructions():
+	var inst = instructions.instance()
+	add_child(inst)
+
+
+func add_bullets(number_of_bullets):
+	for i in range(number_of_bullets):
+			var b = bullet.instance()
+			add_child(b)
+			var position_x = 8000*i
+			var position_y = 700
+			var speed =  50.0 / (i + 1.0)
+			b.init(position_x, position_y, speed)
+
+func update_score():
+	$Canvas/UI/Score.text = "Score: %s" % $Player.score
+
+func update_progress_bar():
+	$Canvas/UI/LevelProgress.value = path_traveled($Player.position.x)
+
+func path_traveled(position_x):
+	var path_traveled =  position_x - X_START
+	return ( path_traveled / X_TOTAL ) * 100
+
+func play_song():
 	if !$Song.is_playing():
 		$Song.stream = song
 		$Song.play()
