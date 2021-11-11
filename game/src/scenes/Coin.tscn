@@ -68,4 +68,6 @@ autoplay = "coin_bounce"
 anims/coin_bounce = SubResource( 2 )
 anims/coin_destroy = SubResource( 3 )
 
+[node name="HitSound" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

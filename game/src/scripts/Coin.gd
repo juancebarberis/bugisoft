@@ -1,12 +1,27 @@
 extends Area2D
 
-onready var animation = get_node("AnimationPlayer")
+class_name Coin
 
-# Esta función detecta si el Player colisiona con la Coin
-# Recibe el nodo del Player
+onready var animation = get_node("AnimationPlayer")
+onready var hit_sound = get_node("HitSound")
+onready var hit_sound_audio = preload("res://src/audio/coin_2.wav")
+
+var hit_sound_played = false
+
+# This function detects the collision with the Player
 func _on_body_entered(player: KinematicBody2D) -> void:
-	# Reproducir animación para destruir Coin de la pantalla
+	# Play the animation for the coin
 	animation.play("coin_destroy")
+	
+	# Play the sound
+	if not hit_sound_played:
+		_play_hit_sound()
 	
 	# Sumar un punto al contador
 	player.increase_score()
+	
+func _play_hit_sound():
+	hit_sound.stream = hit_sound_audio
+	hit_sound.volume_db = -2.0
+	hit_sound.play()
+	hit_sound_played = true
