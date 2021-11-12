@@ -139,7 +139,7 @@ jump_constant = 700.0
 
 [node name="Song" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = 1.0
+volume_db = -13.682
 script = ExtResource( 5 )
 
 [node name="InitialFlag" type="Sprite" parent="."]
@@ -148,58 +148,76 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 6 )
 
 [node name="Coin" parent="." instance=ExtResource( 8 )]
-position = Vector2( 7125.47, 580.254 )
+position = Vector2( 7125.47, 480.254 )
+scale = Vector2( 2, 2 )
 
-[node name="Coin2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 8922.97, 580.254 )
+[node name="Coin2" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 1797.5, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 10485.5, 580.254 )
+[node name="Coin3" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 3360.03, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 12085.5, 580.254 )
+[node name="Coin4" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 4960.03, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin5" parent="." instance=ExtResource( 8 )]
-position = Vector2( 13205.5, 580.254 )
+[node name="Coin5" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 6080.03, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin6" parent="." instance=ExtResource( 8 )]
-position = Vector2( 13645.5, 577.318 )
+[node name="Coin6" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 6520.03, -2.9361 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin7" parent="." instance=ExtResource( 8 )]
-position = Vector2( 15345.5, 580.254 )
+[node name="Coin7" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 8220.03, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin8" parent="." instance=ExtResource( 8 )]
-position = Vector2( 16925.5, 580.254 )
+[node name="Coin8" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 9800.03, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin9" parent="." instance=ExtResource( 8 )]
-position = Vector2( 18625.5, 580.254 )
+[node name="Coin9" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 11500, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin10" parent="." instance=ExtResource( 8 )]
-position = Vector2( 20225.5, 580.254 )
+[node name="Coin10" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 13100, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin11" parent="." instance=ExtResource( 8 )]
-position = Vector2( 21845.5, 577.318 )
+[node name="Coin11" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 14720, -2.9361 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin12" parent="." instance=ExtResource( 8 )]
-position = Vector2( 23525.5, 580.254 )
+[node name="Coin12" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 16400, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin13" parent="." instance=ExtResource( 8 )]
-position = Vector2( 25125.5, 580.254 )
+[node name="Coin13" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 18000, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin14" parent="." instance=ExtResource( 8 )]
-position = Vector2( 26325.5, 580.254 )
+[node name="Coin14" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 19200, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin15" parent="." instance=ExtResource( 8 )]
-position = Vector2( 26728, 580.254 )
+[node name="Coin15" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 19602.5, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin16" parent="." instance=ExtResource( 8 )]
-position = Vector2( 28463, 580.254 )
+[node name="Coin16" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 21337.5, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin17" parent="." instance=ExtResource( 8 )]
-position = Vector2( 30045.5, 580.254 )
+[node name="Coin17" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 22920, 0 )
+scale = Vector2( 1, 1 )
 
-[node name="Coin18" parent="." instance=ExtResource( 8 )]
-position = Vector2( 31765.5, 580.254 )
+[node name="Coin18" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 24640, 0 )
+scale = Vector2( 1, 1 )
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 

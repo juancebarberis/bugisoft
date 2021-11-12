@@ -17,11 +17,15 @@ func _on_body_entered(player: KinematicBody2D) -> void:
 	if not hit_sound_played:
 		_play_hit_sound()
 	
+	player.increase_boost()
+	
 	# Sumar un punto al contador
 	player.increase_score()
 	
+	
+	
 func _play_hit_sound():
 	hit_sound.stream = hit_sound_audio
-	hit_sound.volume_db = -2.0
+	hit_sound.volume_db = 1.0
 	hit_sound.play()
 	hit_sound_played = true

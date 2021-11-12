@@ -5,6 +5,9 @@ export var speed: = Vector2(300.0, 1000.0)
 export var gravity = 3500.0
 export var jump_constant = 1000.0
 export var score: int = 0
+export var old_score: int = 0
+export var boost: int = 0
+
 
 const FLOOR_NORMAL: = Vector2.UP
 var velocity = Vector2.ZERO
@@ -39,11 +42,18 @@ func calculate_velocity(delta: float, previous_velocity: Vector2, is_jump_interr
 		
 	new_velocity.x = min(new_velocity.x, speed.x)
 	
+	if old_score < score:
+		new_velocity.x += boost
+	
 	return new_velocity
+
+func increase_boost():
+	boost += 30
 
 # Función para incrementar el score del jugador.
 # TODO: tal vez esto tenga que ir a un script especial que maneje los puntos.
 func increase_score():
+	old_score = score
 	score += 1
 	
 	# DEBUG
