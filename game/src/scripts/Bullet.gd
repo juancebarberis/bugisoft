@@ -9,6 +9,7 @@ signal exited_signal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	set_physics_process(false)
 	var _error_code = connect("exited_signal", self, "on_exited_signal")
 	pass # Replace with function body.
 

@@ -11,7 +11,7 @@ func _ready():
 	for i in range(5):
 		var b = bullet.instance()
 		add_child(b)
-		b.init(8000*i, 700, float(50)/float(i+1))
+		b.init(8000*i, 700, float(sqrt(10*i)+5))
 
 func _process(_delta):
 	$Canvas/UI/Score.text = "Score: %s" % $Player.score
