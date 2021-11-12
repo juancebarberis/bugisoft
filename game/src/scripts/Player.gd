@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 func _get_direction_y() -> float:
 	return -1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 1.0
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_key_pressed(KEY_X):
 		$AnimationPlayer.play("Giro")
 
