@@ -2,16 +2,11 @@ extends Node2D
 
 
 onready var song = preload("res://src/audio/highscore.mp3")
-onready var bullet = load("res://src/scenes/Bullet.tscn")
 onready var instructions = load("res://src/scenes/Instructions.tscn")
 
 func _ready():
 	var inst = instructions.instance()
 	add_child(inst)
-	for i in range(5):
-		var b = bullet.instance()
-		add_child(b)
-		b.init(8000*i, 700, float(sqrt(10*i)+5))
 
 func _process(_delta):
 	$Canvas/UI/Score.text = "Score: %s" % $Player.score

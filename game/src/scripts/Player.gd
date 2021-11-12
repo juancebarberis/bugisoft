@@ -9,14 +9,17 @@ export var score: int = 0
 const FLOOR_NORMAL: = Vector2.UP
 var velocity = Vector2.ZERO
 
+func _on_BulletDetector_body_entered(body: Bullet) -> void:
+	print("You lost :(")
+	queue_free()
+	print("Restarting game...")
+	get_tree().change_scene("res://src/scenes/MainLevel.tscn")
+
 func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: bool = Input.is_action_just_released("jump") and velocity.y < 0.0
 	
 	velocity = calculate_velocity(delta, velocity, is_jump_interrupted)
 	velocity = move_and_slide(velocity, FLOOR_NORMAL)
-
-	if velocity.x == 0:
-		print('GAME OVER!')
 
 func _get_direction_y() -> float:
 	return -1.0 if Input.is_action_just_pressed("jump") and is_on_floor() else 1.0
@@ -24,7 +27,6 @@ func _get_direction_y() -> float:
 func _process(delta):
 	if Input.is_key_pressed(KEY_X):
 		$AnimationPlayer.play("Giro")
-
 
 func calculate_velocity(delta: float, previous_velocity: Vector2, is_jump_interrupted: bool) -> Vector2:
 	var new_velocity: = previous_velocity
