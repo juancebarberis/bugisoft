@@ -7,7 +7,9 @@
 radius = 27.7513
 height = 34.9623
 
-[node name="Bullet" type="Area2D"]
+[node name="Bullet" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 9
 script = ExtResource( 2 )
 
 [node name="bullet" type="Sprite" parent="."]
@@ -18,4 +20,8 @@ texture = ExtResource( 1 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
-[connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 0.44545, 0.445446 )
+scale = Vector2( 4.42996, 2.73725 )
+process_parent = true
+physics_process_parent = true
