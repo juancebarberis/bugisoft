@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://src/scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/sprites/bkg.png" type="Texture" id=2]
@@ -6,13 +6,13 @@
 [ext_resource path="res://src/audio/highscore.mp3" type="AudioStream" id=4]
 [ext_resource path="res://src/scripts/AudioStreamPlayer.gd" type="Script" id=5]
 [ext_resource path="res://src/sprites/flag.png" type="Texture" id=6]
-[ext_resource path="res://src/scripts/Pause.gd" type="Script" id=7]
 [ext_resource path="res://src/sprites/block-2.png" type="Texture" id=7]
 [ext_resource path="res://src/scenes/Coin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/scripts/MainLevel.gd" type="Script" id=9]
 [ext_resource path="res://src/fonts/fast99.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://src/scripts/Score.gd" type="Script" id=11]
 [ext_resource path="res://src/scenes/Bullet.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/scripts/Pause.gd" type="Script" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 100, 0, 100, 102, 0, 102 )
@@ -69,7 +69,7 @@ script = ExtResource( 9 )
 
 [node name="Pause" type="Node" parent="."]
 pause_mode = 2
-script = ExtResource( 7 )
+script = ExtResource( 13 )
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 2412.12, 132.535 )
@@ -142,7 +142,7 @@ jump_constant = 700.0
 
 [node name="Song" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-volume_db = 1.0
+volume_db = -13.682
 script = ExtResource( 5 )
 
 [node name="InitialFlag" type="Sprite" parent="."]
@@ -151,75 +151,59 @@ scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 6 )
 
 [node name="Coin" parent="." instance=ExtResource( 8 )]
-position = Vector2( 7125.47, 580.254 )
-
-[node name="Coin3" parent="Coin" instance=ExtResource( 8 )]
-position = Vector2( 3360.03, 0 )
-scale = Vector2( 1, 1 )
+position = Vector2( 7125.47, 480.254 )
+scale = Vector2( 2, 2 )
 
 [node name="Coin2" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 1797.5, 0 )
-scale = Vector2( 1, 1 )
+
+[node name="Coin3" parent="Coin" instance=ExtResource( 8 )]
+position = Vector2( 3360.03, 0 )
 
 [node name="Coin4" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 4960.03, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin5" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 6080.03, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin6" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 6520.03, -2.9361 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin7" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 8220.03, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin8" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 9800.03, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin9" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 11500, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin10" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 13100, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin11" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 14720, -2.9361 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin12" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 16400, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin13" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 18000, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin14" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 19200, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin15" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 19602.5, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin16" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 21337.5, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin17" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 22920, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Coin18" parent="Coin" instance=ExtResource( 8 )]
 position = Vector2( 24640, 0 )
-scale = Vector2( 1, 1 )
 
 [node name="Canvas" type="CanvasLayer" parent="."]
 
@@ -227,6 +211,20 @@ scale = Vector2( 1, 1 )
 margin_right = 40.0
 margin_bottom = 40.0
 theme = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelProgress" type="ProgressBar" parent="Canvas/UI"]
+visible = false
+anchor_left = 1.0
+anchor_top = 0.429
+anchor_right = 1.0
+anchor_bottom = 0.429
+margin_left = 200.0
+margin_top = 30.0
+margin_right = 704.0
+margin_bottom = 77.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
