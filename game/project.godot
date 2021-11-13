@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/scripts/Player.gd"
+}, {
+"base": "Label",
+"class": "Score",
+"language": "GDScript",
+"path": "res://src/scripts/Score.gd"
 } ]
 _global_script_class_icons={
 "Coin": "",
-"Player": ""
+"Player": "",
+"Score": ""
 }
 
 [application]

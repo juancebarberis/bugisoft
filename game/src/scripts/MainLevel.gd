@@ -44,7 +44,10 @@ func update_progress_bar():
 
 func path_traveled(position_x):
 	var path_traveled =  position_x - X_START
-	return ( path_traveled / X_TOTAL ) * 100
+	var percentage = ( path_traveled / X_TOTAL ) * 100
+	if int(percentage) == 100:
+		$Canvas/UI/Score.add_score_to_ranking('Rodolfo', $Player.score, "MainLevel")
+	return percentage
 
 func play_song():
 	if !$Song.is_playing():
