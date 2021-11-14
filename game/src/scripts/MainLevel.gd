@@ -55,8 +55,3 @@ func play_song():
 		$Song.stream = song
 		$Song.play()
 
-
-
-
-
-

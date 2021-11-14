@@ -4,7 +4,7 @@ var mainLevel = preload("res://src/scenes/MainLevel.tscn").instance()
 var nickname
 
 func _ready():
-	# Sets placeholder for
+	# Sets placeholder for line edit
 	$LineEdit.placeholder_text = "Write your nickname"
 
 
