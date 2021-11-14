@@ -37,16 +37,25 @@ func add_bullets(number_of_bullets):
 
 
 func update_score():
+	# updates score shown
 	$Canvas/UI/Score.text = "Score: %s" % $Player.score
 
 func update_progress_bar():
-	$Canvas/UI/LevelProgress.value = path_traveled($Player.position.x)
+	$Canvas/UI/LevelProgress.value = _path_traveled($Player.position.x)
 
-func path_traveled(position_x):
+func _path_traveled(position_x):
+	# returns percentage of path traveled
 	var path_traveled =  position_x - X_START
 	return ( path_traveled / X_TOTAL ) * 100
 
 func play_song():
+	# plays song if not already playing
 	if !$Song.is_playing():
 		$Song.stream = song
 		$Song.play()
+
+
+
+
+
+
