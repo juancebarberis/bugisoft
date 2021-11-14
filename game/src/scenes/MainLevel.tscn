@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/sprites/bkg.png" type="Texture" id=2]
@@ -10,9 +10,10 @@
 [ext_resource path="res://src/scenes/Coin.tscn" type="PackedScene" id=8]
 [ext_resource path="res://src/scripts/MainLevel.gd" type="Script" id=9]
 [ext_resource path="res://src/fonts/fast99.ttf" type="DynamicFontData" id=10]
-[ext_resource path="res://src/scripts/Score.gd" type="Script" id=11]
-[ext_resource path="res://src/scenes/Bullet.tscn" type="PackedScene" id=12]
-[ext_resource path="res://src/scripts/Pause.gd" type="Script" id=13]
+[ext_resource path="res://src/scenes/Bullet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/scripts/Pause.gd" type="Script" id=12]
+[ext_resource path="res://src/scripts/MainMenuButton.gd" type="Script" id=13]
+[ext_resource path="res://src/scripts/Score.gd" type="Script" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 100, 0, 100, 102, 0, 102 )
@@ -69,7 +70,7 @@ script = ExtResource( 9 )
 
 [node name="Pause" type="Node" parent="."]
 pause_mode = 2
-script = ExtResource( 13 )
+script = ExtResource( 12 )
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 2412.12, 132.535 )
@@ -216,12 +217,7 @@ __meta__ = {
 }
 
 [node name="LevelProgress" type="ProgressBar" parent="Canvas/UI"]
-visible = false
-anchor_left = 1.0
-anchor_top = 0.429
-anchor_right = 1.0
-anchor_bottom = 0.429
-margin_left = 200.0
+margin_left = 217.0
 margin_top = 30.0
 margin_right = 704.0
 margin_bottom = 77.0
@@ -237,87 +233,101 @@ margin_right = 222.53
 margin_bottom = 71.2681
 custom_colors/font_color = Color( 0.964706, 0.0745098, 0.0313726, 1 )
 text = "Score: 0"
-script = ExtResource( 11 )
+script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Pause" type="Label" parent="Canvas/UI"]
 visible = false
-margin_left = 856.0
-margin_top = 32.0
-margin_right = 1005.0
-margin_bottom = 79.0
+margin_left = 1712.0
+margin_top = 64.0
+margin_right = 1861.0
+margin_bottom = 111.0
 text = "Pause"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Bullet" parent="." instance=ExtResource( 12 )]
+[node name="MainMenuButton" type="Button" parent="Canvas/UI"]
+visible = false
+margin_left = 297.669
+margin_top = 218.914
+margin_right = 588.669
+margin_bottom = 271.914
+text = "Main Menu"
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bullet" parent="." instance=ExtResource( 11 )]
 position = Vector2( 4591.65, 718.779 )
 
-[node name="Bullet2" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet2" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 4422.42, -35.7166 )
 
-[node name="Bullet3" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet3" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 6277.97, -194.457 )
 
-[node name="Bullet4" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet4" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 8817.14, -285.732 )
 
-[node name="Bullet5" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet5" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 9424.32, -130.961 )
 
-[node name="Bullet6" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet6" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 9535.43, -75.4017 )
 
-[node name="Bullet7" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet7" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 11493.2, -51.5906 )
 
-[node name="Bullet8" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet8" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 13710.8, -11.9056 )
 
-[node name="Bullet9" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet9" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 14294.1, -31.7482 )
 
-[node name="Bullet10" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet10" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 14822, -87.3072 )
 
-[node name="Bullet11" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet11" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 15579.8, -158.74 )
 
-[node name="Bullet12" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet12" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 17548.2, -95.2441 )
 
-[node name="Bullet13" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet13" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 19785.1, -420.661 )
 
-[node name="Bullet14" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet14" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 19523.2, -19.8426 )
 
-[node name="Bullet15" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet15" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 21039.2, -71.4332 )
 
-[node name="Bullet16" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet16" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 22514.3, -47.6221 )
 
-[node name="Bullet17" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet17" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 22450.8, 23.8109 )
 
-[node name="Bullet18" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet18" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 22565.9, -123.024 )
 
-[node name="Bullet20" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet20" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 26288.6, -23.8112 )
 
-[node name="Bullet21" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet21" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 26177.5, 15.8739 )
 
-[node name="Bullet22" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet22" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 26177.5, -55.5591 )
 
-[node name="Bullet24" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet24" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 26181.4, -119.055 )
 
-[node name="Bullet25" parent="Bullet" instance=ExtResource( 12 )]
+[node name="Bullet25" parent="Bullet" instance=ExtResource( 11 )]
 position = Vector2( 26284.6, -99.2126 )
+
+[connection signal="pressed" from="Canvas/UI/MainMenuButton" to="Pause" method="_on_MainMenuButton_pressed"]
