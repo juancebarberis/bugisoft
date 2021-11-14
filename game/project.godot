@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Bullet",
+"language": "GDScript",
+"path": "res://src/scripts/Bullet.gd"
+}, {
 "base": "Area2D",
 "class": "Coin",
 "language": "GDScript",
@@ -18,10 +23,17 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/scripts/Player.gd"
+}, {
+"base": "Label",
+"class": "Score",
+"language": "GDScript",
+"path": "res://src/scripts/Score.gd"
 } ]
 _global_script_class_icons={
+"Bullet": "",
 "Coin": "",
-"Player": ""
+"Player": "",
+"Score": ""
 }
 
 [application]

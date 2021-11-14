@@ -32,7 +32,7 @@ func _resume_game() -> void:
 
 
 func _on_MainMenuButton_pressed():
-	#unpauses tree and loads MainMenu scene
+	# unpauses tree and loads MainMenu scene
 	get_tree().paused = false
 	get_tree().change_scene("res://src/scenes/MainMenu.tscn")
 
