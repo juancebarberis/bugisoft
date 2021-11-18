@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/sprites/pinche.png" type="Texture" id=1]
+[ext_resource path="res://src/scripts/Pinche.gd" type="Script" id=2]
+
+[node name="Pinche" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="pinche" type="Sprite" parent="."]
+position = Vector2( 11.3265, -16.9898 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -29.534, 19.3123, 0.670013, -41.0958, 31.818, 21.2001 )
+
+[connection signal="body_entered" from="." to="." method="_on_Pinche_body_entered"]

@@ -13,6 +13,9 @@ const FLOOR_NORMAL: = Vector2.UP
 var velocity = Vector2.ZERO
 
 func _on_BulletDetector_body_entered(body: Bullet) -> void:
+	restart_level()
+
+func restart_level():
 	print("You lost :(")
 	queue_free()
 	print("Restarting game...")
@@ -60,3 +63,6 @@ func increase_score():
 	
 	# DEBUG
 	print(score)
+
+
+
