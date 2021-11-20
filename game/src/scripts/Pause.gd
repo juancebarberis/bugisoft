@@ -18,13 +18,19 @@ func _is_paused() -> bool:
 
 func _pause_game() -> void:
 	# Show the pause UI and pause the tree
-	get_parent().get_node("Canvas/UI/Pause").visible = true
 	get_parent().get_node("Canvas/UI/MainMenuButton").visible = true
+	get_parent().get_node("Canvas/UI/MainTitle").visible = true
+	get_parent().get_node("Canvas/UI/MainCredits").visible = true
+	get_parent().get_node("Canvas/UI/BKGColor").visible = true
+	get_parent().get_node("Canvas/UI/Pause").visible = true
 	get_tree().paused = true
 	
 	
 func _resume_game() -> void:
 	# Hide the pause UI and resume the tree	
+	get_parent().get_node("Canvas/UI/MainTitle").visible = false
+	get_parent().get_node("Canvas/UI/MainCredits").visible = false
+	get_parent().get_node("Canvas/UI/BKGColor").visible = false
 	get_parent().get_node("Canvas/UI/Pause").visible = false
 	get_parent().get_node("Canvas/UI/MainMenuButton").visible = false
 	get_tree().paused = false
