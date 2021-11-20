@@ -2,7 +2,7 @@ extends Label
 
 class_name Score
 
-const GAME_DATA_PATH = "user://game_rankings.data"
+const GAME_DATA_PATH = "user://fiubatrydash_rankings.data"
 
 var saved = false
 
@@ -32,5 +32,5 @@ func save_to_local_ranking_file(ranking_data: Dictionary):
 		ranking_file.open(GAME_DATA_PATH, File.WRITE)
 		
 	ranking_file.seek_end()
-	# Base 64 encoding is just a simple layer to avoid data handling	
-	ranking_file.store_line(Marshalls.utf8_to_base64(json_string))
+	ranking_file.store_line(json_string)
+	ranking_file.close()
