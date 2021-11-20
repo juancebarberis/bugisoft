@@ -25,7 +25,7 @@ func save_to_local_ranking_file(ranking_data: Dictionary):
 	# Store ranking line in base64 format to a file in the user's file system
 	var ranking_file = File.new()
 	var json_string = JSON.print(ranking_data)
-
+	
 	if ranking_file.file_exists(GAME_DATA_PATH):
 		ranking_file.open(GAME_DATA_PATH, File.READ_WRITE)
 	else:

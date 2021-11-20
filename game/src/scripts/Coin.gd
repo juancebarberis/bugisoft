@@ -5,6 +5,7 @@ class_name Coin
 onready var animation = get_node("AnimationPlayer")
 onready var hit_sound = get_node("HitSound")
 onready var hit_sound_audio = preload("res://src/audio/coin_2.wav")
+onready var light = get_node("CoinLight")
 
 var hit_sound_played = false
 
@@ -12,6 +13,7 @@ var hit_sound_played = false
 func _on_body_entered(player: KinematicBody2D) -> void:
 	# Play the animation for the coin
 	animation.play("coin_destroy")
+	light.hide()
 	
 	# Play the sound
 	if not hit_sound_played:
