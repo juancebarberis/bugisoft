@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://src/scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/fonts/Gugi-Regular.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://src/scripts/MainMenuScreen.gd" type="Script" id=7]
 [ext_resource path="res://src/scripts/SetNicknameScreen.gd" type="Script" id=8]
 [ext_resource path="res://src/ui/title.tres" type="DynamicFont" id=9]
+[ext_resource path="res://src/scripts/RankingsScreen.gd" type="Script" id=10]
+[ext_resource path="res://src/ui/fonts/Poppins-Regular.ttf" type="DynamicFontData" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -16,6 +18,16 @@ outline_size = 2
 outline_color = Color( 0.231373, 0.231373, 0.231373, 1 )
 use_filter = true
 font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 18
+outline_size = 1
+outline_color = Color( 0.247059, 0.247059, 0.247059, 1 )
+use_filter = true
+font_data = ExtResource( 11 )
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource( 1 )
@@ -164,10 +176,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="RankingsScreen" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="BackToMenuButton" type="Button" parent="RankingsScreen"]
+margin_left = 384.0
+margin_top = 456.0
+margin_right = 640.0
+margin_bottom = 483.0
+theme = ExtResource( 4 )
+text = "Back to menu"
+
+[node name="RankingsList" type="ItemList" parent="RankingsScreen"]
+margin_left = 192.0
+margin_top = 144.0
+margin_right = 832.0
+margin_bottom = 423.0
+custom_styles/bg = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+max_columns = 4
+same_column_width = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="toggled" from="MusicSwitch" to="." method="_on_MusicSwitch_toggled"]
 [connection signal="pressed" from="MainMenuScreen/PlayGameButton" to="MainMenuScreen" method="_on_PlayGameButton_pressed"]
+[connection signal="pressed" from="MainMenuScreen/RankingsButton" to="MainMenuScreen" method="_on_RankingsButton_pressed"]
 [connection signal="pressed" from="MainMenuScreen/ExitButton" to="MainMenuScreen" method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="MainMenuScreen/ChangeNicknameButton" to="MainMenuScreen" method="_on_ChangeNicknameButton_pressed"]
 [connection signal="pressed" from="SetNicknameScreen/OkButton" to="SetNicknameScreen" method="_on_OkButton_pressed"]
 [connection signal="text_changed" from="SetNicknameScreen/NicknameInput" to="SetNicknameScreen" method="_on_NicknameInput_text_changed"]
 [connection signal="text_entered" from="SetNicknameScreen/NicknameInput" to="SetNicknameScreen" method="_on_NicknameInput_text_entered"]
+[connection signal="pressed" from="RankingsScreen/BackToMenuButton" to="RankingsScreen" method="_on_BackToMenuButton_pressed"]

@@ -27,3 +27,9 @@ func _on_ChangeNicknameButton_pressed() -> void:
 
 func _on_ExitButton_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_RankingsButton_pressed() -> void:
+	var parent = get_parent()
+	hide()
+	parent.show_rankings_screen()
