@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/scripts/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://src/ui/fonts/Gugi-Regular.ttf" type="DynamicFontData" id=2]
@@ -6,19 +6,20 @@
 [ext_resource path="res://src/ui/button.tres" type="Theme" id=4]
 [ext_resource path="res://src/ui/label.tres" type="Theme" id=5]
 [ext_resource path="res://src/audio/bleeping_demo.mp3" type="AudioStream" id=6]
-[ext_resource path="res://src/audio/menu_click.wav" type="AudioStream" id=7]
-
-[sub_resource type="DynamicFont" id=1]
-size = 32
-outline_size = 2
-outline_color = Color( 0.231373, 0.231373, 0.231373, 1 )
-use_filter = true
-font_data = ExtResource( 2 )
+[ext_resource path="res://src/scripts/MainMenuScreen.gd" type="Script" id=7]
+[ext_resource path="res://src/scripts/SetNicknameScreen.gd" type="Script" id=8]
 
 [sub_resource type="DynamicFont" id=2]
 size = 60
 outline_size = 5
 outline_color = Color( 0.227451, 0.223529, 0.219608, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 2
+outline_color = Color( 0.231373, 0.231373, 0.231373, 1 )
 use_filter = true
 font_data = ExtResource( 2 )
 
@@ -29,65 +30,25 @@ script = ExtResource( 1 )
 position = Vector2( 512, 296 )
 texture = ExtResource( 3 )
 
-[node name="PlayGameButton" type="Button" parent="."]
-margin_left = 384.0
-margin_top = 256.0
-margin_right = 640.0
-margin_bottom = 301.0
+[node name="MusicSwitch" type="CheckButton" parent="."]
+margin_left = 864.0
+margin_top = 536.0
+margin_right = 984.0
+margin_bottom = 576.0
+focus_mode = 0
 theme = ExtResource( 4 )
-text = "Play game"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RankingsButton" type="Button" parent="."]
-margin_left = 384.0
-margin_top = 320.0
-margin_right = 640.0
-margin_bottom = 365.0
-theme = ExtResource( 4 )
-text = "Rankings"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NicknameInput" type="LineEdit" parent="."]
-margin_left = 432.0
-margin_top = 216.0
-margin_right = 591.0
-margin_bottom = 251.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="OkButton" type="Button" parent="."]
-margin_left = 456.0
-margin_top = 320.0
-margin_right = 563.0
-margin_bottom = 360.0
-theme = ExtResource( 4 )
-text = "OK"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="NicknameLabel" type="Label" parent="."]
-margin_left = 425.0
-margin_top = 160.0
-margin_right = 599.0
-margin_bottom = 193.0
-custom_fonts/font = SubResource( 1 )
-align = 1
-uppercase = true
+pressed = true
+enabled_focus_mode = 0
+text = "Music"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Title" type="Label" parent="."]
 margin_left = 276.0
-margin_top = 64.0
+margin_top = 41.0
 margin_right = 748.0
-margin_bottom = 128.0
+margin_bottom = 105.0
 custom_fonts/font = SubResource( 2 )
 text = "FIUBATRY DASH"
 align = 1
@@ -107,7 +68,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="."]
+[node name="Authors" type="Label" parent="."]
 margin_left = 40.0
 margin_top = 552.0
 margin_right = 552.0
@@ -121,13 +82,98 @@ __meta__ = {
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
 volume_db = -13.682
+autoplay = true
 
-[node name="ClickSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
-volume_db = 1.0
+[node name="MainMenuScreen" type="Node2D" parent="."]
+script = ExtResource( 7 )
 
-[connection signal="mouse_entered" from="PlayGameButton" to="." method="_on_PlayGameButton_mouse_entered"]
-[connection signal="pressed" from="PlayGameButton" to="." method="_on_PlayGameButton_pressed"]
-[connection signal="text_changed" from="NicknameInput" to="." method="_on_NicknameInput_text_changed"]
-[connection signal="text_entered" from="NicknameInput" to="." method="_on_NicknameInput_text_entered"]
-[connection signal="pressed" from="OkButton" to="." method="_on_OkButton_pressed"]
+[node name="PlayGameButton" type="Button" parent="MainMenuScreen"]
+margin_left = 384.0
+margin_top = 208.0
+margin_right = 640.0
+margin_bottom = 253.0
+theme = ExtResource( 4 )
+text = "Play game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RankingsButton" type="Button" parent="MainMenuScreen"]
+margin_left = 384.0
+margin_top = 280.0
+margin_right = 640.0
+margin_bottom = 325.0
+theme = ExtResource( 4 )
+text = "Rankings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="MainMenuScreen"]
+margin_left = 384.0
+margin_top = 424.0
+margin_right = 640.0
+margin_bottom = 469.0
+theme = ExtResource( 4 )
+text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeNicknameButton" type="Button" parent="MainMenuScreen"]
+margin_left = 384.0
+margin_top = 352.0
+margin_right = 640.0
+margin_bottom = 397.0
+theme = ExtResource( 4 )
+text = "Change nickname"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NicknameLabel" type="Label" parent="MainMenuScreen"]
+margin_left = 280.0
+margin_top = 136.0
+margin_right = 740.0
+margin_bottom = 169.0
+custom_fonts/font = SubResource( 1 )
+align = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SetNicknameScreen" type="Node2D" parent="."]
+visible = false
+script = ExtResource( 8 )
+
+[node name="OkButton" type="Button" parent="SetNicknameScreen"]
+margin_left = 384.0
+margin_top = 320.0
+margin_right = 640.0
+margin_bottom = 360.0
+theme = ExtResource( 4 )
+text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NicknameInput" type="LineEdit" parent="SetNicknameScreen"]
+margin_left = 384.0
+margin_top = 216.0
+margin_right = 640.0
+margin_bottom = 264.0
+theme = ExtResource( 4 )
+align = 1
+max_length = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="toggled" from="MusicSwitch" to="." method="_on_MusicSwitch_toggled"]
+[connection signal="pressed" from="MainMenuScreen/PlayGameButton" to="MainMenuScreen" method="_on_PlayGameButton_pressed"]
+[connection signal="pressed" from="MainMenuScreen/ExitButton" to="MainMenuScreen" method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="MainMenuScreen/ChangeNicknameButton" to="MainMenuScreen" method="_on_ChangeNicknameButton_pressed"]
+[connection signal="pressed" from="SetNicknameScreen/OkButton" to="SetNicknameScreen" method="_on_OkButton_pressed"]
+[connection signal="text_changed" from="SetNicknameScreen/NicknameInput" to="SetNicknameScreen" method="_on_NicknameInput_text_changed"]
+[connection signal="text_entered" from="SetNicknameScreen/NicknameInput" to="SetNicknameScreen" method="_on_NicknameInput_text_entered"]
