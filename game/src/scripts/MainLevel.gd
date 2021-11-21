@@ -4,6 +4,7 @@ onready var song = preload("res://src/audio/highscore.mp3")
 onready var instructions = load("res://src/scenes/Instructions.tscn")
 onready var file_system = preload("res://src/scripts/FileSystem.gd").new()
 
+const LEVEL_NAME = "Level 1"
 const X_START = 3767.16
 const X_END = 34257.0
 const X_TOTAL = X_END - X_START
@@ -46,7 +47,7 @@ func _path_traveled(position_x):
 	var path_traveled =  position_x - X_START
 	var percentage = ( path_traveled / X_TOTAL ) * 100
 	if int(percentage) == 100:
-		file_system.add_score_to_ranking($Player.score, "MainLevel")
+		file_system.add_score_to_ranking($Player.score, LEVEL_NAME)
 	return percentage
 
 func play_song():

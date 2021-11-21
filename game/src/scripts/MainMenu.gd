@@ -13,12 +13,14 @@ func _ready():
 
 
 func show_main_menu_screen():
-		$MainMenuScreen._show()
+	$MainMenuScreen._show()
 		
 
 func show_set_nickname_screen():
-		$SetNicknameScreen._show()
+	$SetNicknameScreen._show()
 
+func show_rankings_screen():
+	$RankingsScreen.show()
 
 func _on_MusicSwitch_toggled(button_pressed: bool) -> void:
 	$BackgroundMusic.playing = button_pressed
