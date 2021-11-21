@@ -19,21 +19,21 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/scripts/Coin.gd"
 }, {
+"base": "Node",
+"class": "FileSystem",
+"language": "GDScript",
+"path": "res://src/scripts/FileSystem.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/scripts/Player.gd"
-}, {
-"base": "Label",
-"class": "Score",
-"language": "GDScript",
-"path": "res://src/scripts/Score.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
 "Coin": "",
-"Player": "",
-"Score": ""
+"FileSystem": "",
+"Player": ""
 }
 
 [application]

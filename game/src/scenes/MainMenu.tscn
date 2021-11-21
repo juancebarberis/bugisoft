@@ -8,13 +8,7 @@
 [ext_resource path="res://src/audio/bleeping_demo.mp3" type="AudioStream" id=6]
 [ext_resource path="res://src/scripts/MainMenuScreen.gd" type="Script" id=7]
 [ext_resource path="res://src/scripts/SetNicknameScreen.gd" type="Script" id=8]
-
-[sub_resource type="DynamicFont" id=2]
-size = 60
-outline_size = 5
-outline_color = Color( 0.227451, 0.223529, 0.219608, 1 )
-use_filter = true
-font_data = ExtResource( 2 )
+[ext_resource path="res://src/ui/title.tres" type="DynamicFont" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -49,7 +43,7 @@ margin_left = 276.0
 margin_top = 41.0
 margin_right = 748.0
 margin_bottom = 105.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = ExtResource( 9 )
 text = "FIUBATRY DASH"
 align = 1
 uppercase = true

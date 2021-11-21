@@ -1,6 +1,6 @@
 extends Node2D
 
-const USER_DATA_PATH = "user://fiubatrydash_user.data"
+onready var file_system = preload("res://src/scripts/FileSystem.gd").new()
 
 func _ready():
 	# Initialize the screen
@@ -36,25 +36,7 @@ func _on_OkButton_pressed():
 	# game button and greeting
 	var parent = get_parent()
 	parent.nickname = $NicknameInput.get_text().to_upper()
-	_set_nickname_on_user_data()
+	file_system.set_nickname_on_user_data(parent.nickname)
 	hide()
 	parent.show_main_menu_screen()
-	
-func _get_nickname_from_user_data():
-	# Try to get the user's nickname saved on the FS
-	# If the user doesn't register a nickname, we just return an empty string
-	var file = File.new()
-	var saved_nickname = ""
-	
-	if file.file_exists(USER_DATA_PATH):
-		file.open(USER_DATA_PATH, File.READ)
-		saved_nickname = file.get_as_text().strip_escapes()
-		file.close()
-	return saved_nickname
-	
-func _set_nickname_on_user_data():
-	# Sets the new nickname on the FS
-	var file = File.new()
-	var parent = get_parent()
-	file.open(USER_DATA_PATH, File.WRITE)
-	file.store_line(parent.nickname)
+

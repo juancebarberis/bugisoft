@@ -1,9 +1,10 @@
 extends Node2D
 
-export(String) var nickname
+onready var file_system = preload("res://src/scripts/FileSystem.gd").new()
+var nickname
 
 func _ready():
-	nickname = $SetNicknameScreen._get_nickname_from_user_data()
+	nickname = file_system.get_nickname_from_user_data()
 	
 	if nickname.length() > 0:
 		show_main_menu_screen()

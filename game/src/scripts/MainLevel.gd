@@ -2,6 +2,7 @@ extends Node2D
 
 onready var song = preload("res://src/audio/highscore.mp3")
 onready var instructions = load("res://src/scenes/Instructions.tscn")
+onready var file_system = preload("res://src/scripts/FileSystem.gd").new()
 
 const X_START = 3767.16
 const X_END = 34257.0
@@ -13,8 +14,7 @@ func _ready():
 
 func _process(_delta):
 	if($Player.position.x > X_START):
-		$Canvas/UI/LevelProgress.visible = true;
-		$Canvas/UI/Score.visible = true
+		$Canvas/GameUI.show()
 	update_score()
 	play_song()
 	update_progress_bar()
@@ -36,17 +36,17 @@ func add_instructions():
 
 func update_score():
 	# updates score shown
-	$Canvas/UI/Score.text = "Score: %s" % $Player.score
+	$Canvas/GameUI/Score.text = "Score: %s" % $Player.score
 
 func update_progress_bar():
-	$Canvas/UI/LevelProgress.value = _path_traveled($Player.position.x)
+	$Canvas/GameUI/LevelProgress.value = _path_traveled($Player.position.x)
 
 func _path_traveled(position_x):
 	# returns percentage of path traveled
 	var path_traveled =  position_x - X_START
 	var percentage = ( path_traveled / X_TOTAL ) * 100
 	if int(percentage) == 100:
-		$Canvas/UI/Score.add_score_to_ranking('Rodolfo', $Player.score, "MainLevel")
+		file_system.add_score_to_ranking($Player.score, "MainLevel")
 	return percentage
 
 func play_song():
