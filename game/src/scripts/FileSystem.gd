@@ -5,7 +5,7 @@ class_name FileSystem
 # All FS related operations are here.
 
 const USER_DATA_PATH = "user://fiubatrydash_user.data"
-const GAME_DATA_PATH = "user://fiubatrydash_rankings.data"
+const RANKINGS_DATA_PATH = "user://fiubatrydash_rankings.data"
 var saved = false
 
 
@@ -44,11 +44,28 @@ func save_to_local_ranking_file(ranking_data: Dictionary):
 	var ranking_file = File.new()
 	var json_string = JSON.print(ranking_data)
 	
-	if ranking_file.file_exists(GAME_DATA_PATH):
-		ranking_file.open(GAME_DATA_PATH, File.READ_WRITE)
+	if ranking_file.file_exists(RANKINGS_DATA_PATH):
+		ranking_file.open(RANKINGS_DATA_PATH, File.READ_WRITE)
 	else:
-		ranking_file.open(GAME_DATA_PATH, File.WRITE)
+		ranking_file.open(RANKINGS_DATA_PATH, File.WRITE)
 		
 	ranking_file.seek_end()
 	ranking_file.store_line(json_string)
 	ranking_file.close()
+
+func get_local_rankings():
+	var ranking_file = File.new()
+	
+	if not ranking_file.file_exists(RANKINGS_DATA_PATH):
+		return []
+	
+	ranking_file.open(RANKINGS_DATA_PATH, File.READ)
+	var rankings = []
+	var decoded_json
+	var line = ranking_file.get_line()
+	while line:
+		decoded_json = JSON.parse(line)
+		if decoded_json.error == OK:
+			rankings.append(decoded_json.get_result())
+		line = ranking_file.get_line()
+	return rankings
