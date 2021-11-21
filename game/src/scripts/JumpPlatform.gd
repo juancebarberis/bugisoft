@@ -1,6 +1,6 @@
 extends Area2D
 
-class_name JumpTile
+class_name JumpPlatform
 
 onready var animation = get_node("AnimatedSprite")
 onready var jump_sound_audio = preload("res://src/audio/jumpsound.wav")

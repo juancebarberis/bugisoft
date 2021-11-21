@@ -25,7 +25,7 @@ _global_script_classes=[ {
 "path": "res://src/scripts/FileSystem.gd"
 }, {
 "base": "Area2D",
-"class": "JumpTile",
+"class": "JumpPlatform",
 "language": "GDScript",
 "path": "res://src/scripts/JumpPlatform.gd"
 }, {
@@ -38,7 +38,7 @@ _global_script_class_icons={
 "Bullet": "",
 "Coin": "",
 "FileSystem": "",
-"JumpTile": "",
+"JumpPlatform": "",
 "Player": ""
 }
 

@@ -405,7 +405,6 @@ position = Vector2( 3980.43, 2.97308 )
 
 [node name="JumpPlatform" parent="JumpPlatform2/JumpPlatform/JumpPlatform/JumpPlatform/JumpPlatform/JumpPlatform" instance=ExtResource( 18 )]
 position = Vector2( -12686, -2.97302 )
-scale = Vector2( 1, 1 )
 
 [node name="JumpPlatform" parent="." instance=ExtResource( 18 )]
 position = Vector2( 5078.87, 745.966 )
