@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bleeping_demo.mp3-88a8e9d9a667aba459e241f92a598805.mp3str"
+
+[deps]
+
+source_file="res://src/audio/bleeping_demo.mp3"
+dest_files=[ "res://.import/bleeping_demo.mp3-88a8e9d9a667aba459e241f92a598805.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

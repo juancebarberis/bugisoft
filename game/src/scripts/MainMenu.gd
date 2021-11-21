@@ -1,26 +1,28 @@
 extends Node2D
 
-var mainLevel = preload("res://src/scenes/MainLevel.tscn").instance()
+onready var file_system = preload("res://src/scripts/FileSystem.gd").new()
 var nickname
 
 func _ready():
-	# Sets placeholder for line edit
-	$LineEdit.placeholder_text = "Write your nickname"
+	nickname = file_system.get_nickname_from_user_data()
+	
+	if nickname.length() > 0:
+		show_main_menu_screen()
+	else:
+		show_set_nickname_screen()
 
 
-func _on_PlayGameButton_pressed():
-	# frees Play Button and Nickname. Starts main level
-	$PlayGameButton.queue_free()
-	$NicknameLabel.queue_free()
-	add_child(mainLevel)
+func show_main_menu_screen():
+		$MainMenuScreen._show()
+		
+
+func show_set_nickname_screen():
+		$SetNicknameScreen._show()
 
 
-func _on_OkButton_pressed():
-	# Gets nickname from label, frees Line edit and Ok button. Shows Play
-	# game button and greeting
-	nickname = $LineEdit.get_text()
-	$NicknameLabel.text = "HI %s" %nickname
-	$LineEdit.queue_free()
-	$OkButton.queue_free()
-	$PlayGameButton.show()
-	$NicknameLabel.show()
+func _on_MusicSwitch_toggled(button_pressed: bool) -> void:
+	$BackgroundMusic.playing = button_pressed
+
+
+func _stop_music():
+	$BackgroundMusic.stop()
