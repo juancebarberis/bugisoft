@@ -26,7 +26,6 @@ func render_scores_on_list():
 		$RankingsList.add_item(String(ranking.score), null, false)
 
 func format_date_for_ranking(date_time):
-	var weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
 	var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 	var result = "%02d %s %d %02d:%02d:%02d" % [date_time.day, months[date_time.month-1], date_time.year, date_time.hour, date_time.minute, date_time.second]
 	return result
