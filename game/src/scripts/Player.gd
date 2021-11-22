@@ -7,7 +7,7 @@ export var jump_constant = 1000.0
 export var score: int = 0
 export var old_score: int = 0
 export var boost: int = 0
-
+export var jump_platf_impulse = 1400.0
 
 const FLOOR_NORMAL: = Vector2.UP
 var velocity = Vector2.ZERO
@@ -17,6 +17,10 @@ func _on_BulletDetector_body_entered(body: Bullet) -> void:
 	queue_free()
 	print("Restarting game...")
 	get_tree().change_scene("res://src/scenes/MainLevel.tscn")
+	
+func _on_JumpPlatformDetector_area_entered(area: Area2D) -> void:
+	velocity.y = -jump_platf_impulse
+	print("Jumping in platform") 
 
 func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: bool = Input.is_action_just_released("jump") and velocity.y < 0.0

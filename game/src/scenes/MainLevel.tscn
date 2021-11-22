@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://src/scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/sprites/bkg.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://src/scenes/Lamp.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/ui/label.tres" type="Theme" id=16]
 [ext_resource path="res://src/ui/title.tres" type="DynamicFont" id=17]
+[ext_resource path="res://src/scenes/JumpPlatform.tscn" type="PackedScene" id=18]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 3.25, 3.25, 24.25, 47.25, 33.25, 97.25, 23.25, 100, 0.25, 99.25, 101.25, 0.25, 100.25 )
@@ -376,12 +377,36 @@ position = Vector2( 2573.52, 0 )
 position = Vector2( -6330.92, 0.980373 )
 
 [node name="Lamp4" parent="Lamp" instance=ExtResource( 15 )]
-position = Vector2( 5676.19, 0 )
+position = Vector2( 5677.44, 0 )
 
 [node name="Lamp5" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( 8724.24, 0 )
 
 [node name="Lamp6" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( -2894.08, 0 )
+
+[node name="JumpPlatform2" parent="." instance=ExtResource( 18 )]
+position = Vector2( 9631.75, 750.254 )
+
+[node name="JumpPlatform" parent="JumpPlatform2" instance=ExtResource( 18 )]
+position = Vector2( 5356.48, 0.000183105 )
+
+[node name="JumpPlatform" parent="JumpPlatform2/JumpPlatform" instance=ExtResource( 18 )]
+position = Vector2( 5747.6, 0.00012207 )
+
+[node name="JumpPlatform" parent="JumpPlatform2/JumpPlatform/JumpPlatform" instance=ExtResource( 18 )]
+position = Vector2( 7420.47, -3.44616 )
+
+[node name="JumpPlatform" parent="JumpPlatform2/JumpPlatform/JumpPlatform/JumpPlatform" instance=ExtResource( 18 )]
+position = Vector2( 3097.34, -2.13831 )
+
+[node name="JumpPlatform" parent="JumpPlatform2/JumpPlatform/JumpPlatform/JumpPlatform/JumpPlatform" instance=ExtResource( 18 )]
+position = Vector2( 3980.43, 2.97308 )
+
+[node name="JumpPlatform" parent="JumpPlatform2/JumpPlatform/JumpPlatform/JumpPlatform/JumpPlatform/JumpPlatform" instance=ExtResource( 18 )]
+position = Vector2( -12686, -2.97302 )
+
+[node name="JumpPlatform" parent="." instance=ExtResource( 18 )]
+position = Vector2( 5078.87, 745.966 )
 
 [connection signal="pressed" from="Canvas/PauseUI/MainMenuButton" to="Pause" method="_on_MainMenuButton_pressed"]
