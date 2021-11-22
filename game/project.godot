@@ -44,17 +44,22 @@ _global_script_class_icons={
 
 [application]
 
-config/name="pilot_1"
-run/main_scene="res://src/scenes/MainLevel.tscn"
+config/name="fiubatry_dash"
+run/main_scene="res://src/scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [audio]
 
 output_latency=5
 
+[display]
+
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
 [global]
 
-colli=false
+resolution=false
 
 [input]
 
