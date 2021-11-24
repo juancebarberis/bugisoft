@@ -421,9 +421,10 @@ position = Vector2( 5356.48, 0.000183105 )
 position = Vector2( 2810.39, 605.388 )
 
 [node name="Portal2" parent="." instance=ExtResource( 19 )]
-position = Vector2( 44807.5, 628.879 )
+position = Vector2( 4944.08, 0.201035 )
 
 [node name="Portal3" parent="." instance=ExtResource( 19 )]
-position = Vector2( 5307.82, -7.12128 )
+position = Vector2( 44883.3, 629.489 )
+scale = Vector2( 1, 1 )
 
 [connection signal="pressed" from="Canvas/PauseUI/MainMenuButton" to="Pause" method="_on_MainMenuButton_pressed"]
