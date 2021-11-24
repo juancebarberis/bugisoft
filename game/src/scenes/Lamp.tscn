@@ -11,3 +11,10 @@ texture = ExtResource( 1 )
 texture_scale = 16.08
 energy = 1.3
 shadow_enabled = true
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+visible = false
+position = Vector2( 0.250002, -5.25 )
+scale = Vector2( 5.275, 6.325 )
+process_parent = true
+physics_process_parent = true

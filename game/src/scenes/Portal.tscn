@@ -169,7 +169,7 @@ script = ExtResource( 2 )
 scale = Vector2( 5.6, 5.6 )
 frames = SubResource( 23 )
 animation = "waiting_for_entrance"
-frame = 3
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -201,6 +201,7 @@ volume_db = 2.0
 stream = ExtResource( 5 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+visible = false
 position = Vector2( 2.49999, 27 )
 scale = Vector2( 12.05, 15.2 )
 process_parent = true
