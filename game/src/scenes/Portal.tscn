@@ -169,7 +169,7 @@ script = ExtResource( 2 )
 scale = Vector2( 5.6, 5.6 )
 frames = SubResource( 23 )
 animation = "waiting_for_entrance"
-frame = 5
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
