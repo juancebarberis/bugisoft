@@ -8,6 +8,7 @@ export var score: int = 0
 export var old_score: int = 0
 export var boost: int = 0
 export var jump_platf_impulse = 1400.0
+export var portal_reduction_of_vel = 20
 
 const FLOOR_NORMAL: = Vector2.UP
 var velocity = Vector2.ZERO
@@ -21,6 +22,10 @@ func _on_BulletDetector_body_entered(body: Bullet) -> void:
 func _on_JumpPlatformDetector_area_entered(area: Area2D) -> void:
 	velocity.y = -jump_platf_impulse
 	print("Jumping in platform") 
+	
+func _on_PortalDetector_area_entered(area: Area2D) -> void:
+	print("Player entro al area del portal")
+	velocity = velocity / portal_reduction_of_vel
 
 func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: bool = Input.is_action_just_released("jump") and velocity.y < 0.0
