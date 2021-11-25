@@ -83,3 +83,10 @@ func increase_score():
 	
 	# DEBUG
 	print(score)
+
+func _on_SlowdownDetector_area_entered(area: Area2D) -> void:
+	print("slowdown")
+
+func decrease_boost():
+	boost -= 80
+

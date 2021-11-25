@@ -33,13 +33,19 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/scripts/Player.gd"
+}, {
+"base": "Area2D",
+"class": "Slowdown",
+"language": "GDScript",
+"path": "res://src/scenes/Slowdown.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
 "Coin": "",
 "FileSystem": "",
 "JumpPlatform": "",
-"Player": ""
+"Player": "",
+"Slowdown": ""
 }
 
 [application]
