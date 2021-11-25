@@ -25,10 +25,10 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10.25, 0.625 )
+extents = Vector2( 6.25, 0.625 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 77, 6 )
+extents = Vector2( 47, 13 )
 
 [node name="JumpPlatform" type="Area2D"]
 collision_layer = 16
@@ -39,7 +39,7 @@ script = ExtResource( 1 )
 position = Vector2( 0, -14 )
 frames = SubResource( 1 )
 animation = "effervescence"
-frame = 1
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -52,14 +52,20 @@ modulate = Color( 0.313726, 0.129412, 0.819608, 1 )
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="JumpDetector"]
-position = Vector2( 0, 9 )
 shape = SubResource( 3 )
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="JumpPlatformLight" type="Light2D" parent="."]
 texture = ExtResource( 10 )
 texture_scale = 3.53
 shadow_enabled = true
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+visible = false
+position = Vector2( -2, -55 )
+scale = Vector2( 11, 10 )
+process_parent = true
+physics_process_parent = true
 
 [connection signal="body_entered" from="JumpDetector" to="." method="_on_JumpDetector_body_entered"]
