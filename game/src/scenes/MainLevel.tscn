@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://src/scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/sprites/bkg.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://src/ui/title.tres" type="DynamicFont" id=17]
 [ext_resource path="res://src/scenes/JumpPlatform.tscn" type="PackedScene" id=18]
 [ext_resource path="res://src/scenes/Portal.tscn" type="PackedScene" id=19]
+[ext_resource path="res://src/scenes/Slowdown.tscn" type="PackedScene" id=20]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 3.25, 3.25, 24.25, 47.25, 33.25, 97.25, 23.25, 100, 0.25, 99.25, 101.25, 0.25, 100.25 )
@@ -383,6 +384,13 @@ position = Vector2( 26284.6, -99.2126 )
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.372549, 0.34902, 0.34902, 1 )
 
+[node name="Slowdown" parent="." instance=ExtResource( 20 )]
+position = Vector2( 15808.2, 624.527 )
+
+[node name="Slowdown2" parent="Slowdown" instance=ExtResource( 20 )]
+position = Vector2( 5049.16, 0 )
+scale = Vector2( 1, 1 )
+
 [node name="Lamp" parent="." instance=ExtResource( 15 )]
 position = Vector2( 14807.3, -101.707 )
 scale = Vector2( 2, 2 )
@@ -402,19 +410,19 @@ position = Vector2( 8724.24, 0 )
 [node name="Lamp6" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( -2894.08, 0 )
 
-[node name="JumpPlatform2" parent="." instance=ExtResource( 18 )]
+[node name="JumpPlatform" parent="." instance=ExtResource( 18 )]
 position = Vector2( 9631.75, 750.254 )
 
-[node name="JumpPlatform2" parent="JumpPlatform2" instance=ExtResource( 18 )]
+[node name="JumpPlatform2" parent="JumpPlatform" instance=ExtResource( 18 )]
 position = Vector2( 18524.5, -3.44586 )
 
-[node name="JumpPlatform3" parent="JumpPlatform2" instance=ExtResource( 18 )]
+[node name="JumpPlatform3" parent="JumpPlatform" instance=ExtResource( 18 )]
 position = Vector2( 11104.1, 0.000305176 )
 
-[node name="JumpPlatform4" parent="JumpPlatform2" instance=ExtResource( 18 )]
+[node name="JumpPlatform4" parent="JumpPlatform" instance=ExtResource( 18 )]
 position = Vector2( 21621.9, -5.58417 )
 
-[node name="JumpPlatform" parent="JumpPlatform2" instance=ExtResource( 18 )]
+[node name="JumpPlatform" parent="JumpPlatform" instance=ExtResource( 18 )]
 position = Vector2( 5356.48, 0.000183105 )
 
 [node name="Portal1" parent="." instance=ExtResource( 19 )]
@@ -425,6 +433,5 @@ position = Vector2( 4944.08, 0.201035 )
 
 [node name="Portal3" parent="." instance=ExtResource( 19 )]
 position = Vector2( 44883.3, 629.489 )
-scale = Vector2( 1, 1 )
 
 [connection signal="pressed" from="Canvas/PauseUI/MainMenuButton" to="Pause" method="_on_MainMenuButton_pressed"]
