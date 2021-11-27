@@ -24,16 +24,28 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/scripts/FileSystem.gd"
 }, {
+"base": "Area2D",
+"class": "JumpPlatform",
+"language": "GDScript",
+"path": "res://src/scripts/JumpPlatform.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/scripts/Player.gd"
+}, {
+"base": "Area2D",
+"class": "Slowdown",
+"language": "GDScript",
+"path": "res://src/scenes/Slowdown.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
 "Coin": "",
 "FileSystem": "",
-"Player": ""
+"JumpPlatform": "",
+"Player": "",
+"Slowdown": ""
 }
 
 [application]
@@ -75,6 +87,8 @@ pause={
 2d_physics/layer_2="enemies"
 2d_physics/layer_3="coins"
 2d_physics/layer_4="world"
+2d_physics/layer_5="jump_platform"
+2d_physics/layer_6="portal"
 
 [physics]
 
