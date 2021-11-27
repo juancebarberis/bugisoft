@@ -57,6 +57,5 @@ func increase_boost():
 func increase_score():
 	old_score = score
 	score += 1
-	
-	# DEBUG
-	print(score)
+	var parent = get_parent()
+	parent.update_score()

@@ -10,14 +10,13 @@ const X_END = 34257.0
 const X_TOTAL = X_END - X_START
 
 func _ready():
+	play_song()
 	add_instructions()
 	#add_bullets(8)
 
 func _process(_delta):
 	if($Player.position.x > X_START):
 		$Canvas/GameUI.show()
-	update_score()
-	play_song()
 	update_progress_bar()
 
 func add_instructions():
