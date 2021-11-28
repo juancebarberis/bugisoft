@@ -61,7 +61,7 @@ func calculate_velocity(delta: float, previous_velocity: Vector2, is_jump_interr
 	var direction_y: = _get_direction_y()
 	if (not gravity_inverted and direction_y == -1.0) or (gravity_inverted and direction_y == 1.0):
 		new_velocity.y = speed.y * direction_y
-		print("entramo")
+		#print("entramo")
 	if is_jump_interrupted:
 		new_velocity.y = 0.0
 		
