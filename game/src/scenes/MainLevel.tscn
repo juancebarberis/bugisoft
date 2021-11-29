@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/sprites/bkg.png" type="Texture" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://src/scenes/JumpPlatform.tscn" type="PackedScene" id=18]
 [ext_resource path="res://src/scenes/Portal.tscn" type="PackedScene" id=19]
 [ext_resource path="res://src/scenes/Slowdown.tscn" type="PackedScene" id=20]
+[ext_resource path="res://src/scripts/Shader.gd" type="Script" id=21]
+[ext_resource path="res://src/shaders/chromatic.gdshader" type="Shader" id=22]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( 0, 3.25, 3.25, 24.25, 47.25, 33.25, 97.25, 23.25, 100, 0.25, 99.25, 101.25, 0.25, 100.25 )
@@ -72,6 +74,10 @@ font_data = ExtResource( 10 )
 
 [sub_resource type="Theme" id=5]
 default_font = SubResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 22 )
+shader_param/offset = 1.0
 
 [node name="MainLevel" type="Node2D"]
 position = Vector2( -2.18695, 87.8985 )
@@ -156,6 +162,9 @@ texture = ExtResource( 2 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 264.333, 481.202 )
 jump_constant = 700.0
+
+[node name="FlashTimer" type="Timer" parent="Player"]
+wait_time = 0.5
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 5.47342, 577.318 )
@@ -312,6 +321,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Shader" type="ColorRect" parent="Canvas"]
+material = SubResource( 6 )
+margin_right = 1030.0
+margin_bottom = 606.0
+script = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShaderTimer" type="Timer" parent="Canvas/Shader"]
+
 [node name="Bullet" parent="." instance=ExtResource( 11 )]
 position = Vector2( 4591.65, 718.779 )
 
@@ -434,4 +454,6 @@ position = Vector2( 4944.08, 0.201035 )
 [node name="Portal3" parent="." instance=ExtResource( 19 )]
 position = Vector2( 44883.3, 629.489 )
 
+[connection signal="timeout" from="Player/FlashTimer" to="Player" method="_on_FlashTimer_timeout"]
 [connection signal="pressed" from="Canvas/PauseUI/MainMenuButton" to="Pause" method="_on_MainMenuButton_pressed"]
+[connection signal="timeout" from="Canvas/Shader/ShaderTimer" to="Canvas/Shader" method="_on_ShaderTimer_timeout"]
