@@ -2,6 +2,10 @@
 
 Repositorio del grupo Bugisoft para la materia TDL - FIUBA - 2C2021
 
+## FIUBATRY DASH
+
+FIUBATRY DASH es un videojuego de plataformas, el cual utiliza un sistema sencillo de puslación para controlar al personaje. El objetivo del juego es completar los niveles obteniendo la máxima puntuación posible.
+
 ## Equipo
 
 - [Lautaro](mailto:lfrancetich@fi.uba.ar)

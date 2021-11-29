@@ -19,27 +19,45 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://src/scripts/Coin.gd"
 }, {
+"base": "Node",
+"class": "FileSystem",
+"language": "GDScript",
+"path": "res://src/scripts/FileSystem.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": "Highscore_Song",
+"language": "GDScript",
+"path": "res://src/scripts/AudioStreamPlayer.gd"
+}, {
+"base": "Area2D",
+"class": "JumpPlatform",
+"language": "GDScript",
+"path": "res://src/scripts/JumpPlatform.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://src/scripts/Player.gd"
 }, {
-"base": "Label",
-"class": "Score",
+"base": "Area2D",
+"class": "Slowdown",
 "language": "GDScript",
-"path": "res://src/scripts/Score.gd"
+"path": "res://src/scenes/Slowdown.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
 "Coin": "",
+"FileSystem": "",
+"Highscore_Song": "",
+"JumpPlatform": "",
 "Player": "",
-"Score": ""
+"Slowdown": ""
 }
 
 [application]
 
-config/name="pilot_1"
-run/main_scene="res://src/scenes/MainLevel.tscn"
+config/name="fiubatry_dash"
+run/main_scene="res://src/scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [audio]
@@ -51,12 +69,15 @@ output_latency=5
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
+[global]
+
+resolution=false
+
 [input]
 
 jump={
 "deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":90,"unicode":0,"echo":false,"script":null)
-, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"unicode":0,"echo":false,"script":null)
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":88,"unicode":0,"echo":false,"script":null)
  ]
 }
 pause={
@@ -72,6 +93,8 @@ pause={
 2d_physics/layer_2="enemies"
 2d_physics/layer_3="coins"
 2d_physics/layer_4="world"
+2d_physics/layer_5="jump_platform"
+2d_physics/layer_6="portal"
 
 [physics]
 
