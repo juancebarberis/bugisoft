@@ -15,8 +15,6 @@ func _ready():
 	#add_bullets(8)
 
 func _process(_delta):
-	if($Player.position.x > X_START):
-		$Canvas/GameUI.show()
 	update_progress_bar()
 
 func add_instructions():
@@ -54,4 +52,12 @@ func play_song():
 	if !$Song.is_playing():
 		$Song.stream = song
 		$Song.play()
+		
+func _update_debug(message: String):
+	$Canvas/GameUI/_debug.text = "Debug: " + message
 
+func show_game_ui():
+	$Canvas/GameUI.show()
+
+func get_player():
+	return $Player

@@ -19,8 +19,6 @@ func _on_body_entered(player: KinematicBody2D) -> void:
 	if not hit_sound_played:
 		_play_hit_sound()
 	
-	player.increase_boost()
-	
 	# Sumar un punto al contador
 	player.increase_score()
 	

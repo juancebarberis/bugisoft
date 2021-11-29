@@ -67,8 +67,12 @@ func calculate_velocity(delta: float, previous_velocity: Vector2, is_jump_interr
 		
 	new_velocity.x = min(new_velocity.x, speed.x)
 	
-	if old_score < score:
-		new_velocity.x += boost
+	# Applying boost
+	new_velocity.x += boost
+	
+	# DEBUG
+	var parent = get_parent()
+	parent._update_debug(String([new_velocity, boost]))
 	
 	return new_velocity
 
@@ -88,4 +92,10 @@ func _on_SlowdownDetector_area_entered(area: Area2D) -> void:
 
 func decrease_boost():
 	boost -= 80
+	
+func reset_boost():
+	boost = 0
+
+func set_boost_level(boost_level: int):
+	boost = boost_level * 10
 
