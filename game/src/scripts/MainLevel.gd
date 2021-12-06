@@ -12,6 +12,7 @@ const X_TOTAL = X_END - X_START
 func _ready():
 	play_song()
 	add_instructions()
+	$Canvas/Shader.chromatic_abb()
 	#add_bullets(8)
 
 func _process(_delta):
