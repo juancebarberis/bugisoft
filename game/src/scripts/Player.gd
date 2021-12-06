@@ -15,6 +15,9 @@ var velocity = Vector2.ZERO
 var gravity_inverted = false
 
 func _on_BulletDetector_body_entered(body: Bullet) -> void:
+	restart_level()
+
+func restart_level():
 	print("You lost :(")
 	queue_free()
 	print("Restarting game...")
@@ -23,7 +26,7 @@ func _on_BulletDetector_body_entered(body: Bullet) -> void:
 func _on_JumpPlatformDetector_area_entered(area: Area2D) -> void:
 	var vel_y = -jump_platf_impulse if not gravity_inverted else jump_platf_impulse
 	velocity.y = vel_y
-	
+	flash_player()
 	print("Jumping in platform") 
 	
 func _on_PortalDetector_area_entered(area: Area2D) -> void:
@@ -98,4 +101,12 @@ func reset_boost():
 
 func set_boost_level(boost_level: int):
 	boost = boost_level * 10
+
+func flash_player():
+	$character.material.set_shader_param("player_color_modifier", 1)
+	$FlashTimer.start()
+
+
+func _on_FlashTimer_timeout():
+	$character.material.set_shader_param("player_color_modifier", 0)
 
