@@ -52,6 +52,9 @@ func _get_direction_y() -> float:
 func _process(_delta):
 	if Input.is_key_pressed(KEY_X):
 		$AnimationPlayer.play("Giro")
+	
+	if get_slide_count() == 2:
+		restart_level()
 
 func calculate_velocity(delta: float, previous_velocity: Vector2, is_jump_interrupted: bool) -> Vector2:
 	if (gravity_inverted and gravity > 0) or (not gravity_inverted and gravity < 0): 

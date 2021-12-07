@@ -56,18 +56,23 @@ func check_for_the_moment():
 	elif time_between(important_beats[1], important_beats[2]):
 		next_important_beat = important_beats[2]
 		player.set_boost_level(5)
+		parent.chromatic_abb()
 	elif time_between(important_beats[2], important_beats[3]):
 		next_important_beat = important_beats[3]
+		print(2,player.position)
 		# Placeholder
 	elif time_between(important_beats[3], important_beats[4]):
 		next_important_beat = important_beats[4]
 		player.set_boost_level(15)
+		print(3,player.position)		
 	elif time_between(important_beats[4], important_beats[5]):
 		next_important_beat = important_beats[-1]
 		player.set_boost_level(20)
+		print(4,player.position)		
 	elif time_between(important_beats[5], important_beats[6]):
 		next_important_beat = null
 		player.set_boost_level(10)
+		print(5,player.position)		
 	else:
 		next_important_beat = null
 
