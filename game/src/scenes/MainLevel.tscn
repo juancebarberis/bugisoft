@@ -252,7 +252,7 @@ position = Vector2( 78295.8, -61.6708 )
 scale = Vector2( 1.58096, 1.34918 )
 
 [node name="Checkpoint3" parent="InitialFlag" instance=ExtResource( 6 )]
-position = Vector2( 124074, -61.6706 )
+position = Vector2( 127827, -92.9639 )
 scale = Vector2( 1.6884, 1.65382 )
 
 [node name="Coin" parent="." instance=ExtResource( 8 )]
