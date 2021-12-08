@@ -10,9 +10,14 @@ export var boost: int = 0
 export var jump_platf_impulse = 1400.0
 export var portal_reduction_of_vel = 20
 
+const INITIAL_POSITION = Vector2(264.333, 481.202)
 const FLOOR_NORMAL: = Vector2.UP
 var velocity = Vector2.ZERO
 var gravity_inverted = false
+
+func _ready():
+	#position = INITIAL_POSITION
+	pass
 
 func _on_BulletDetector_body_entered(body: Bullet) -> void:
 	restart_level()
@@ -27,12 +32,13 @@ func _on_JumpPlatformDetector_area_entered(area: Area2D) -> void:
 	var vel_y = -jump_platf_impulse if not gravity_inverted else jump_platf_impulse
 	velocity.y = vel_y
 	flash_player()
-	print("Jumping in platform") 
+	#print("Jumping in platform") 
 	
 func _on_PortalDetector_area_entered(area: Area2D) -> void:
 	print("Player entro al area del portal")
-	velocity = velocity / portal_reduction_of_vel
-	gravity_inverted = not gravity_inverted
+	#velocity = velocity / portal_reduction_of_vel
+	#gravity_inverted = not gravity_inverted
+	#gravity_inverted = true
 
 func _physics_process(delta: float) -> void:
 	var is_jump_interrupted: bool
@@ -52,6 +58,9 @@ func _get_direction_y() -> float:
 func _process(_delta):
 	if Input.is_key_pressed(KEY_X):
 		$AnimationPlayer.play("Giro")
+	
+	if get_slide_count() == 2:
+		restart_level()
 
 func calculate_velocity(delta: float, previous_velocity: Vector2, is_jump_interrupted: bool) -> Vector2:
 	if (gravity_inverted and gravity > 0) or (not gravity_inverted and gravity < 0): 
@@ -70,8 +79,12 @@ func calculate_velocity(delta: float, previous_velocity: Vector2, is_jump_interr
 		
 	new_velocity.x = min(new_velocity.x, speed.x)
 	
-	if old_score < score:
-		new_velocity.x += boost
+	# Applying boost
+	new_velocity.x += boost
+	
+	# DEBUG
+	var parent = get_parent()
+	parent._update_debug(String([new_velocity, boost]))
 	
 	return new_velocity
 
@@ -91,6 +104,12 @@ func _on_SlowdownDetector_area_entered(area: Area2D) -> void:
 
 func decrease_boost():
 	boost -= 80
+	
+func reset_boost():
+	boost = 0
+
+func set_boost_level(boost_level: int):
+	boost = boost_level * 10
 
 func flash_player():
 	$character.material.set_shader_param("player_color_modifier", 1)
@@ -100,3 +119,5 @@ func flash_player():
 func _on_FlashTimer_timeout():
 	$character.material.set_shader_param("player_color_modifier", 0)
 
+func toggle_gravity():
+	gravity_inverted = not gravity_inverted
