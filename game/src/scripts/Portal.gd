@@ -5,12 +5,16 @@ onready var light = get_node("PortalLight")
 onready var portal_vibraiton_sound = get_node("PortalVibrationSound")
 onready var portal_closing_sound = get_node("PortalClosingSound")
 
+export var entered = false
+
 func _ready() -> void:
 	animation.play("waiting_for_entrance")
 	portal_vibraiton_sound.play()
 
 func _on_EntranceDetector_body_exited(body: Node) -> void:
-	print("Salió del otro lado del portal!")
+	if not entered:
+		body.toggle_gravity()
+		entered = true
 	close_portal()
 
 func _on_PortalVibrationSound_finished() -> void:
@@ -26,3 +30,4 @@ func close_portal() -> void:
 	
 	yield($WaitingAnimation, "animation_finished")
 	queue_free()
+	

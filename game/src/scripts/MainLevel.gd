@@ -64,3 +64,6 @@ func get_player():
 
 func chromatic_abb():
 	$Canvas/Shader.chromatic_abb()
+
+func seek_song(seek_value: float):
+	$Song.seek(seek_value)
