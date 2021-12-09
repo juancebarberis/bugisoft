@@ -239,7 +239,7 @@ position = Vector2( 18982, 84.0357 )
 texture = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 32525.8, 505.096 )
+position = Vector2( 500, 505.096 )
 jump_constant = 700.0
 
 [node name="FlashTimer" type="Timer" parent="Player"]
@@ -247,7 +247,6 @@ wait_time = 0.5
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 5.47342, 577.318 )
-scale = Vector2( 1, 1 )
 tile_set = SubResource( 5 )
 cell_size = Vector2( 100, 100 )
 cell_tile_origin = 1
@@ -442,8 +441,45 @@ __meta__ = {
 
 [node name="ShaderTimer" type="Timer" parent="Canvas/Shader"]
 
-[node name="Bullet" parent="." instance=ExtResource( 11 )]
-position = Vector2( 4400.52, 302.382 )
+[node name="Bullet2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 7400.52, 700 )
+scale = Vector2( 1, 1 )
+
+[node name="Bullet3" parent="Bullet2" instance=ExtResource( 11 )]
+position = Vector2( 2000, 0 )
+
+[node name="Bullet4" parent="Bullet2" instance=ExtResource( 11 )]
+position = Vector2( 6000, -350 )
+
+[node name="Bullet6" parent="Bullet2" instance=ExtResource( 11 )]
+position = Vector2( 9500, -500 )
+
+[node name="Bullet7" parent="Bullet2" instance=ExtResource( 11 )]
+position = Vector2( 9600, -350 )
+
+[node name="Bullet8" parent="Bullet2" instance=ExtResource( 11 )]
+position = Vector2( 14800, 0 )
+
+[node name="Bullet9" parent="Bullet2" instance=ExtResource( 11 )]
+position = Vector2( 15000, -300 )
+
+[node name="Bullet10" parent="Bullet2" instance=ExtResource( 11 )]
+position = Vector2( 17000, -400 )
+
+[node name="Bullet12" parent="Bullet2" instance=ExtResource( 11 )]
+position = Vector2( 22000, -250 )
+
+[node name="Bullet13" parent="Bullet2" instance=ExtResource( 11 )]
+position = Vector2( 24300, -50 )
+
+[node name="Bullet15" parent="Bullet2" instance=ExtResource( 11 )]
+position = Vector2( 32000, -500 )
+
+[node name="Bullet16" parent="Bullet2" instance=ExtResource( 11 )]
+position = Vector2( 37000, -99.9999 )
+
+[node name="Bullet17" parent="Bullet2" instance=ExtResource( 11 )]
+position = Vector2( 42000, -600 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.372549, 0.34902, 0.34902, 0.854902 )
@@ -469,75 +505,60 @@ position = Vector2( -2894.08, 0 )
 
 [node name="Lamp7" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( -1118.98, -4.10614 )
-scale = Vector2( 1, 1 )
 
 [node name="Lamp8" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( -4502.08, -4.10614 )
-scale = Vector2( 1, 1 )
 
 [node name="Lamp9" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( 3952.44, 13.3939 )
-scale = Vector2( 1, 1 )
 
 [node name="Lamp10" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( 6968.2, -4.10614 )
-scale = Vector2( 1, 1 )
 
 [node name="Lamp11" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( 10546.5, 599.668 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="Lamp12" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( 11899.8, 377.633 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="Lamp13" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( 13985.2, 188.581 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="Lamp14" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( 13340.3, 402.776 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="Lamp15" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( 15345.8, 396.222 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="Lamp16" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( 17230.3, 402.776 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="Lamp17" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( 18170, 391.668 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="Lamp18" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( 18981.5, 402.776 )
 rotation = 3.14159
-scale = Vector2( 1, 1 )
 
 [node name="Lamp19" parent="Lamp" instance=ExtResource( 15 )]
 position = Vector2( 21231.2, 39.9804 )
 rotation = 6.28318
-scale = Vector2( 1, 1 )
 
 [node name="Portal1In" parent="." instance=ExtResource( 19 )]
 position = Vector2( 35077.4, 630.096 )
 
 [node name="Portal1Out" parent="." instance=ExtResource( 19 )]
 position = Vector2( 54833, 10.6523 )
-scale = Vector2( 1, 1 )
 
 [node name="JumpPlatform1" parent="." instance=ExtResource( 18 )]
 position = Vector2( 25826.3, 744.629 )
-scale = Vector2( 1, 1 )
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource( 13 )
