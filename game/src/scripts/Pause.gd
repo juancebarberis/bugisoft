@@ -7,8 +7,12 @@ func _ready():
 	
 func _process(delta: float) -> void:
 	# Main loop. Check if the user wants to pause/resume the game.
+	var parent = get_parent()
 	if not _is_paused() and Input.is_action_just_pressed("pause"):
-		_pause_game()
+		if not parent.level_completed: 
+			_pause_game()
+		else:
+			_on_MainMenuButton_pressed()
 	elif Input.is_action_just_pressed("pause"):
 		_resume_game()
 
@@ -18,15 +22,17 @@ func _is_paused() -> bool:
 
 func _pause_game() -> void:
 	# Show the pause UI and pause the tree
-	get_parent().get_node("Canvas/GameUI").hide()
-	get_parent().get_node("Canvas/PauseUI").show()
+	var parent = get_parent()
+	parent.get_node("Canvas/GameUI").hide()
+	parent.get_node("Canvas/PauseUI").show()
 	get_tree().paused = true
 	
 	
 func _resume_game() -> void:
-	# Hide the pause UI and resume the tree	
-	get_parent().get_node("Canvas/GameUI").show()
-	get_parent().get_node("Canvas/PauseUI").hide()
+	# Hide the pause UI and resume the tree
+	var parent = get_parent()	
+	parent.get_node("Canvas/GameUI").show()
+	parent.get_node("Canvas/PauseUI").hide()
 	get_tree().paused = false
 
 

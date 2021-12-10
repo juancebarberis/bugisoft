@@ -6,13 +6,14 @@ onready var file_system = preload("res://src/scripts/FileSystem.gd").new()
 
 const LEVEL_NAME = "Level 1"
 const X_START = 3767.16
-const X_END = 34257.0
+const X_END = 54257.0
 const X_TOTAL = X_END - X_START
+
+export var level_completed = false
 
 func _ready():
 	play_song()
 	add_instructions()
-	#add_bullets(8)
 
 func _process(_delta):
 	update_progress_bar()
@@ -21,16 +22,18 @@ func add_instructions():
 	var inst = instructions.instance()
 	add_child(inst)
 
+func restart_level():
+	if not level_completed:
+		print("You lost :(")
+		queue_free()
+		print("Restarting game...")
+		get_tree().change_scene("res://src/scenes/MainLevel.tscn")
+	else: 
+		show_level_complete_ui()
 
-#func add_bullets(number_of_bullets):
-#	for i in range(number_of_bullets):
-#			var b = bullet.instance()
-#			add_child(b)
-#			var position_x = 8000*i
-#			var position_y = 700
-#			var speed =  50.0 / (i + 1.0)
-#			b.init(position_x, position_y, speed)
-
+func show_level_complete_ui():
+	$Canvas/LevelCompleteUI.visible = true
+	$Canvas/LevelCompleteUI/ScoreAdvise.text = "Obtuviste una puntuacion de: %s" % $Player.score
 
 func update_score():
 	# updates score shown
@@ -44,6 +47,7 @@ func _path_traveled(position_x):
 	var path_traveled =  position_x - X_START
 	var percentage = ( path_traveled / X_TOTAL ) * 100
 	if int(percentage) == 100:
+		level_completed = true
 		file_system.add_score_to_ranking($Player.score, LEVEL_NAME)
 	return percentage
 
