@@ -16,17 +16,15 @@ var velocity = Vector2.ZERO
 var gravity_inverted = false
 
 func _ready():
-	#position = INITIAL_POSITION
+	position = INITIAL_POSITION
 	pass
 
 func _on_BulletDetector_body_entered(body: Bullet) -> void:
 	restart_level()
 
 func restart_level():
-	print("You lost :(")
-	queue_free()
-	print("Restarting game...")
-	get_tree().change_scene("res://src/scenes/MainLevel.tscn")
+	var parent = get_parent()
+	parent.restart_level()
 	
 func _on_JumpPlatformDetector_area_entered(area: Area2D) -> void:
 	var vel_y = -jump_platf_impulse if not gravity_inverted else jump_platf_impulse
@@ -81,10 +79,6 @@ func calculate_velocity(delta: float, previous_velocity: Vector2, is_jump_interr
 	
 	# Applying boost
 	new_velocity.x += boost
-	
-	# DEBUG
-	var parent = get_parent()
-	parent._update_debug(String([new_velocity, boost]))
 	
 	return new_velocity
 
